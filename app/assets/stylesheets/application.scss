@@ -11,3 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+  text-decoration: none;
+  color: rgb(233, 216, 215);
+  &:hover {
+    color: black;
+  }
+}
+
+body {
+  background-color: #6d6666;
+}
