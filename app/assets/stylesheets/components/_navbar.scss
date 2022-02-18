@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.topnav {
+  background-color: rgb(233, 216, 216);
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+}
+.topnav a {
+  // float: left;
+  color: #6d6666;
+  // text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav_text {
+  padding-top: 13px;
+}
+
+.topnav a:hover {
+  color: black;
+}

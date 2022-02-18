@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <div>
+       <br>
+      <% @list.bookmarks.each do |bookmark| %>
+      <ul class="list-unstyled">
+        <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 200 %>
+        <li><%= bookmark.movie.title %></li>
+        <ul>
+          <p><%= bookmark.movie.overview %></p>
+        </ul>
+        <%= bookmark.comment %>
+        <br>
+        <%= link_to "Delete", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Delete?"} %>
+      </ul>
+      <% end %>
+      <br>
+  </div>
+
+  <br>
+  <%= link_to "Add Movie",  new_list_bookmark_path(@list) %>
+  <br>
+  <%= link_to "Back", lists_path %>
+</div>
