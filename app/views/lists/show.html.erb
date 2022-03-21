@@ -2,30 +2,33 @@
     <h1><%= @list.name %></h1>
 </div>
 
-<div class="container p-3">
-<%= link_to "Add Movie",  new_list_bookmark_path(@list), class: "btn" %>
-  <br>
-  <br>
+<div class="container mb-4">
+  <div class="d-flex">
+    <%= link_to "Back", root_path, class: "btn me-2 m-4" %>
+    <%= link_to "Add Movie",  new_list_bookmark_path(@list), class: "btn ms-2 m-4" %>
+  </div>
   <div class="cards">
-    <div class="card-trip">
-      <% @list.bookmarks.each do |bookmark| %>
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-trip">
         <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 200 %>
-        <div class="card-trip-infos">
+        <div class="d-flex align-items-center">
+          <div class="card-trip-infos">
             <div>
               <h2><%= bookmark.movie.title %></h2>
               <p><%= bookmark.movie.overview %></p>
               <br>
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
               <div class="comment">
                 <i class="fa-solid fa-comment me-2"></i>
                 <p><%= bookmark.comment %></p>
               </div>
-            </div>
               <%= link_to "Delete", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Delete?"}, class: "btn-reverse" %>
+            </div>
           </div>
-        <% end %>
+        </div>
       </div>
+    <% end %>
   </div>
 
-  <br>
-  <%= link_to "Back", root_path, class: "btn" %>
 </div>
